@@ -49,15 +49,6 @@ function resetGame() {
 *                                   *
 * --------------------------------- */
 
-// $('.row').each(function () {
-//     var wrap = $(this);
-//     var hi = wrap.closest('#character').find('.row');
-//     wrap.find('img').each(function () {
-//         var img = $(this);
-//         img.remove().appendTo(hi);
-//     });
-// });
-
 $("#character").click(function () {
 
     // var clicked = $(this);
