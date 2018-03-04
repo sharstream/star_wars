@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Start Wars Game</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+</head>
+
+<body>
+    <div class="header">
+        <header>Star Wars RPG!</header>
+    </div>
+    <div id="character">
+        <div class="row">
+            <img class="first character-image" src="assets/images/dark vader.jpg"
+                alt="crystals">
+            <img class="second character-image" src="assets/images/obi wan.jpg"
+                alt="crystals">
+            <img class="third character-image" src="assets/images/yoda.jpg"
+                alt="crystals">
+            <img class="four character-image" src="assets/images/porg plush.jpg"
+                alt="crystals">
+        </div>
+    </div>
+    <br>
+    <div class="your_character">Your Character</div>
+    <div class="selected_character"></div>
+    <br>
+    <div class="enemies">Enemies Available to Attack</div>
+    <div class="enemy_character"></div>
+    <br>
+    <div class="selecion">Fight Section</div>
+    <br>
+    <div class="btn btn-attack">
+        <button>Attack</button>
+    </div>
+    <br>
+    <div class="your_defender">Your Defender</div>
+    <br>
+    <!-- Note that this div is now empty. We will fill it dynamically -->
+    <div id="defeat">
+    </div>
+    <div class="clear">
+        <button onload="resetGame()">Reset Game</button>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>
