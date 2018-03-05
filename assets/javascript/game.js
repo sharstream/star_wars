@@ -1,5 +1,5 @@
 /* ---- Game jQuery-JS logic ------ *
-*    jQuery Start Wars RPG Game     *
+*    jQuery Star Wars RPG Game      *
 *       Author: David Perez         *
 *          GT bootcamps             *
 * --------------------------------- */
