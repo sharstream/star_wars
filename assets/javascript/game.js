@@ -54,21 +54,21 @@ $("#character").click(function () {
     // var clicked = $(this);
     var imagesClass = ['first', 'second', 'third', 'four'];
     
-    if ($('.row').hasClass('first')) {
-        $(".first").appendTo(".your_character");
+    if ($('img').hasClass('first')) {
+        $("#dark_vader").hide();
         console.log('what is clicked here: ' + $(".first").appendTo(".your_character"));
     }
 
-    else if ($('.row').hasClass('second')) {
-        $(".second").appendTo(".your_character");
+    else if ($('img').hasClass('second')) {
+        $("#obi_wan").hide();
     } 
     
-    else if ($('.row').hasClass('third')) {
-        $(".third").appendTo(".your_character");
+    else if ($('img').hasClass('third')) {
+        $("#yoda").hide();
     } 
     
-    else if ($('.row').hasClass('four')) {
-        $(".four").appendTo(".your_character");
+    else if ($('img').hasClass('four')) {
+        $("#porg").hide();
     }
 });
 

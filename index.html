@@ -11,7 +11,7 @@
     <div class="header">
         <header>Star Wars RPG!</header>
     </div>
-    <div id="character">
+    <div id="container">
         <div class="row">
             <img id="dark_vader" class="first character-image" src="assets/images/dark_vader.jpg"
                 alt="character">
@@ -25,13 +25,12 @@
     </div>
     <br>
     <div class="your_character">Your Character</div>
-    <div class="selected_character"></div>
+    <div id="character" class="selected_character"></div>
     <br>
     <div class="row">Enemies Available to Attack
-        <div id="to_dark_vader" class="enemy_character"></div>
-        <div id="to_obi_wan" class="enemy_character"></div>
-        <div id="to_yoda" class="enemy_character"></div>
-        <div id="to_porg" class="enemy_character"></div>
+        <div id="first" class="enemy_character"></div>
+        <div id="second" class="enemy_character"></div>
+        <div id="third" class="enemy_character"></div>
     </div>
     <br>
     <div class="selecion">Fight Section</div>
@@ -41,7 +40,7 @@
     </div>
     <br>
     <div class="your_defender">Your Defender</div>
-    <div class="defender_character"></div>
+    <div id="defender" class="defender_character"></div>
     <br>
     <!-- Note that this div is now empty. We will fill it dynamically -->
     <div id="defeat">
@@ -52,52 +51,40 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
     <script>
+        var obaImg = new Object();
+
         var obimids = {
-            'assets/images/dark_vader.jpg': ['dark_vader', 'to_dark_vader'],
-            'assets/images/obi_wan.jpg': ['obi_wan', 'to_obi_wan'],
-            'assets/images/yoda.jpg': ['yoda', 'to_yoda'],
-            'assets/images/porg_plush.jpg': ['porg', 'to_porg']
+            'assets/images/dark_vader.jpg': ['dark_vader', 'character'],
+            'assets/images/obi_wan.jpg': ['obi_wan', 'first'],
+            'assets/images/yoda.jpg': ['yoda', 'second'],
+            'assets/images/porg_plush.jpg': ['porg', 'defender']
         };
 
         function whenAddImg() {
-            /* Here you can add a code to be executed when the images is added in the other tag */
             return true;
         }
 
-        /* From here no need to edit */
-
-        // create object that will contain functions to alternate image from a tag to another
-        var obaImg = new Object();
-        // put the image in element with ID from "ide"
         obaImg.putImg = function (img, ide, stl) {
             if (document.getElementById(ide)) {
-                document.getElementById(ide).innerHTML = '<img src="' + img + '" ' + 'style="width:300px;height:250px"' + ' />';
+                document.getElementById(ide).innerHTML = '<img src="' + img + '" ' + 'style="width:300px;height:250px;border: 4px solid red;"' + ' />';
             }
         }
-
-        // empty the element with ID from "elmid", add image in the other element associated to "img"
         obaImg.alternateImg = function (elmid) {
             var img = obaImg.storeim[elmid];
             var addimg = (elmid == obimids[img][0]) ? obimids[img][1] : obimids[img][0];
-            $('#' + elmid + ' img').hide(300, function () {
+            $('#' + elmid + ' img').hide(800, function () {
                 $('#' + elmid).html('');
                 obaImg.putImg(img, addimg, 'style="display:none;"');
-                $('#' + addimg + ' img').fadeIn(300);
+                $('#' + addimg + ' img').fadeIn(500);
             });
 
-            // function executed after the image is moved into "addimg"
             whenAddImg();
         }
-        obaImg.storeim = {};            // store /associate id_elm: image
-
-        // add 'image': 'id_elm1', and 'image': 'id_elm1' in "storeim"
-        // add the image in the first tag associated to image
-        // register 'onclick' to each element associated with images in "obimids"
+        obaImg.storeim = {};            
         obaImg.regOnclick = function () {
             for (var im in obimids) {
                 obaImg.storeim[obimids[im][0]] = im;
                 obaImg.storeim[obimids[im][1]] = im;
-                console.log('get the key: ' + obaImg.storeim[obimids[im][0]]);
                 obaImg.putImg(im, obimids[im][0]);
                 document.getElementById(obimids[im][0]).onclick = function () { obaImg.alternateImg(this.id); };
                 document.getElementById(obimids[im][1]).onclick = function () { obaImg.alternateImg(this.id); };
