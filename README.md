@@ -3,7 +3,22 @@
 Overview
 In this game, you'll create another fun and interactive game for web browsers. This time, your app must dynamically update your HTML pages with the jQuery library.
 
-Before You Begin
+Before You Begin.
+
+### Installation requirements
+- jQuery 3.3.1
+- Bootstrap 3.7
+- game.js logic.
+- style.css stylesheet.
+
+### How play this Game
+- To start, select any character and defender.
+- Enemies available to attack. You have the fight section.
+- Click on "Attack" button to start the attack.
+- The HP will decrease by each attack.
+- It wins each character if has still HP amount to attack.
+- It loses each defender if has still HP amount to attack. 
+
 Create a new GitHub repo called week-4-game, then clone it to your computer.
 
 Inside the week-4-game folder, create an index.html file.
