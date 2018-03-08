@@ -5,6 +5,9 @@
     <title>Start Wars Game</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
 </head>
 
 <body>
@@ -12,8 +15,8 @@
         <header>Star Wars RPG!</header>
     </div>
     <div id="container">
-        <div class="row">
-            <img id="dark_vader" class="first character-image" src="assets/images/dark_vader.jpg"
+        <div class="row shake-little">
+            <img id="delth_vader" class="first character-image" src="assets/images/dark_vader.jpg"
                 alt="character">
             <img id="obi_wan" class="second character-image" src="assets/images/obi_wan.jpg"
                 alt="character">
@@ -24,23 +27,23 @@
         </div>
     </div>
     <br>
-    <div class="your_character">Your Character</div>
-    <div id="character" class="selected_character"></div>
+    <div class="your_character"><p>Your Character</p></div>
+    <div id="character" class="shake-slow selected_character"></div>
     <br>
-    <div class="row">Enemies Available to Attack
-        <div id="first" class="enemy_character"></div>
-        <div id="second" class="enemy_character"></div>
-        <div id="third" class="enemy_character"></div>
+    <div class="enemiesBox">
+        <div class="enemies"></div>
+        <p>Enemies Available to Attack</p>
     </div>
     <br>
-    <div class="selecion">Fight Section</div>
     <br>
-    <div class="btn btn-attack">
-        <button>Attack</button>
+    <div class="figthBox"></div>
+        <p>Fight Section</p>
+        <button class="shake-hard btn-atttack">Attack</button>
+    <br>    
     </div>
     <br>
-    <div class="your_defender">Your Defender</div>
-    <div id="defender" class="defender_character"></div>
+    <div class="defenderBox"><p>Your Defender</p></div>
+    <div id="defender" class="shake-opacity defender_character"></div>
     <br>
     <!-- Note that this div is now empty. We will fill it dynamically -->
     <div id="defeat">
@@ -70,12 +73,36 @@
             }
         }
         obaImg.alternateImg = function (elmid) {
+            console.log('elmid: '+elmid);
             var img = obaImg.storeim[elmid];
+            console.log('img: '+ img);
             var addimg = (elmid == obimids[img][0]) ? obimids[img][1] : obimids[img][0];
-            $('#' + elmid + ' img').hide(800, function () {
-                $('#' + elmid).html('');
-                obaImg.putImg(img, addimg, 'style="display:none;"');
-                $('#' + addimg + ' img').fadeIn(500);
+            console.log('addimg: '+ addimg);
+    
+            $('.character-image').each(function (index) {
+                if ($(this).attr("id") == 'dark_vader') {
+                    obaImg.putImg(img, addimg, 'style="display:none;"');
+                    $('#' + addimg + ' img').fadeIn(500);
+                    $(this).show(200);
+                }
+                else if($(this).attr("id") == 'obi_wan'){
+                    // obaImg.putImg(img, addimg, 'style="display:none;"');
+                    $('#' + addimg + ' img').fadeIn(500);
+                    $(this).show(200);
+                }
+                else if ($(this).attr("id") == 'yoda') {
+                    // obaImg.putImg(img, addimg, 'style="display:none;"');
+                    $('#' + addimg + ' img').fadeIn(500);
+                    $(this).show(200);
+                }
+                else if ($(this).attr("id") == 'porg') {
+                    // obaImg.putImg(img, addimg, 'style="display:none;"');
+                    $('#' + addimg + ' img').fadeIn(500);
+                    $(this).show(200);
+                }
+                else{
+                    $(this).hide(600);
+                }
             });
 
             whenAddImg();
@@ -83,11 +110,18 @@
         obaImg.storeim = {};            
         obaImg.regOnclick = function () {
             for (var im in obimids) {
+
                 obaImg.storeim[obimids[im][0]] = im;
                 obaImg.storeim[obimids[im][1]] = im;
                 obaImg.putImg(im, obimids[im][0]);
-                document.getElementById(obimids[im][0]).onclick = function () { obaImg.alternateImg(this.id); };
-                document.getElementById(obimids[im][1]).onclick = function () { obaImg.alternateImg(this.id); };
+
+                document.getElementById(obimids[im][0]).onclick = function () { 
+                    obaImg.alternateImg(this.id); 
+                    console.log('return this.id: '+obaImg.alternateImg(this.id));
+                };
+                document.getElementById(obimids[im][1]).onclick = function () { 
+                    obaImg.alternateImg(this.id); 
+                };
             }
         }
         obaImg.regOnclick();     

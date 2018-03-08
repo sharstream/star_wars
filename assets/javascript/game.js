@@ -4,106 +4,185 @@
 *          GT bootcamps             *
 * --------------------------------- */
 
+
+$(document).ready(function () {
+
+
 /* ------- Global variables ------- *
 *                                   *
 * --------------------------------- */
-// display a message with your defeat scores
-var message = $("#defeat");
-var numberOptions = [10, 5, 3, 7];
+
+    var char1Count = true;
+    var cousntDefated = 0;
+    var delthCount = 0;
+    var obiCount = 0;
+    var yodaCount = 0;
+    var porgCount = 0;
 
 /* ---------- Objects ------------- *
 *                                   *
 * --------------------------------- */
-
+//or this alternative object with method function
 var character = {
     health_points: 200,
     attack_power: 0,
     counter_attack_power: 0,
-    targetNumber: Math.floor(Math.random()),
-    chooseCharacter: function() {
-        return this;
-    },
-    increasePower: increaseAttack(numberOptions),
     win: function win() { alert('You win!'); resetGame(); },
     lose: function lose() { alert('Oh no, you lose!'); resetGame(); }
 }
 
-/* ----- StartWars Game rules ----- *
+/* --------- Game Logics ---------- *
 *                                   *
 * --------------------------------- */
 
-function increaseAttack(numberOptions) {
-    for (var i = 0; i < numberOptions.length; i++) {
-
-    }
-}
-
-function resetGame() {
-    resetUI();
-    character.health_points = 200
-    character.attack_power = 0;
-    character.counter_attack_power = 0;
-}
-
-/* ----- Browser Interactions ----- *
-*                                   *
-* --------------------------------- */
-
-$("#character").click(function () {
-
-    // var clicked = $(this);
-    var imagesClass = ['first', 'second', 'third', 'four'];
-    
-    if ($('img').hasClass('first')) {
-        $("#dark_vader").hide();
-        console.log('what is clicked here: ' + $(".first").appendTo(".your_character"));
+    function resetGame() {
+        resetUI();
+        character.health_points = 200
+        character.attack_power = 0;
+        character.counter_attack_power = 0;
     }
 
-    else if ($('img').hasClass('second')) {
-        $("#obi_wan").hide();
-    } 
-    
-    else if ($('img').hasClass('third')) {
-        $("#yoda").hide();
-    } 
-    
-    else if ($('img').hasClass('four')) {
-        $("#porg").hide();
-    }
-});
+    $('#delth_vader').on('click', function(){
+        if (char1Count === true) {
+            $(this).addClass('main');
+            delthCount++;
+            char1Count = false;
 
-$(document).ready(function () {
-    $('.btn-attack').click(function () {
-        var attackPower = ($(this).attr(""));
-        character.attack_power = parseInt(attackPower);
-        character.counter_attack_power += character.attack_power;
+            $('#obi_wan').appendTo('.enemiesBox').css({'heigth': '250px', 'width':'300px', 
+                'background-color':'red'});
+            $('#yoda').appendTo('.enemiesBox').css({'heigth': '250px', 'width':'300px', 
+                'background-color':'red'});
+            $('#porg').appendTo('.enemiesBox').css({'heigth': '250px', 'width':'300px', 
+                'background-color':'red'});
+            $('.starImage').css({'heigth': '250px', 'width':'300px', 
+                                'margin-left':'auto', 'margin-right': 'auto', 'display': 'block'});
+        }
+        else if (char1Count === false && delthCount === 0) {
+            $('#delth_vader').appendTo('.defenderBox').addClass("def").css({'background-color':'black', 'color': 'white'});
+        }
+    });
 
-        if (character.counter_attack_power  === character.targetNumber) {
-            character.win();
+    $('#obi_wan').on('click', function(){
+        if (char1Count === true) {
+            $(this).addClass('.main');
+            obiCount++;
+            char1Count = false;
+
+            $('#delth_vader').appendTo('.enemiesBox').css({'heigth': '250px', 'width': '300px',
+                'background-color': 'red'});
+            $('#yoda').appendTo('.enemiesBox').css({'heigth': '250px', 'width': '300px',
+                'background-color': 'red'});
+            $('#porg').appendTo('.enemiesBox').css({'heigth': '250px', 'width': '300px',
+                'background-color': 'red'});
+            $('.starImage').css({'heigth': '250px', 'width': '300px',
+                'margin-left': 'auto', 'margin-right': 'auto', 'display': 'block'});
+        }
+        else if (char1Count === false && obiCount === 0) {
+            $('#obi_wan').appendTo('.defenderBox').addClass("def").css({ 'background-color': 'black', 'color': 'white' });
+        }
+    });
+
+    $('#yoda').on('click', function(){
+        if (char1Count === true) {
+            $(this).addClass('.main');
+            yodaCount++;
+            char1Count = false;
+
+            $('#delth_vader').appendTo('.enemiesBox').css({'heigth': '250px', 'width': '300px',
+                'background-color': 'red'});
+            $('#obi_wan').appendTo('.enemiesBox').css({'heigth': '250px', 'width': '300px',
+                'background-color': 'red'});
+            $('#porg').appendTo('.enemiesBox').css({'heigth': '250px', 'width': '300px',
+                'background-color': 'red'});
+            $('.starImage').css({'heigth': '250px', 'width': '300px',
+                'margin-left': 'auto', 'margin-right': 'auto', 'display': 'block'});
+        }
+        else if (char1Count === false && yodaCount === 0) {
+            $('#yoda').appendTo('.defenderBox').addClass("def").css({ 'background-color': 'black', 'color': 'white' });
+        }
+    });
+
+    $('#porg').on('click', function(){
+        if (char1Count === true) {
+            $(this).addClass('.main');
+            porgCount++;
+            char1Count = false;
+
+            $('#delth_vader').appendTo('.enemiesBox').css({'heigth': '250px', 'width': '300px',
+                'background-color': 'red'});
+            $('#obi_wan').appendTo('.enemiesBox').css({'heigth': '250px', 'width': '300px',
+                'background-color': 'red'});
+            $('#yoda').appendTo('.enemiesBox').css({'heigth': '250px', 'width': '300px',
+                'background-color': 'red'});
+            $('.starImage').css({'heigth': '250px', 'width': '300px',
+                'margin-left': 'auto', 'margin-right': 'auto', 'display': 'block'});
+        }
+        else if (char1Count === false && porgCount === 0) {
+            $('#porg').appendTo('.defenderBox').addClass("def").css({ 'background-color': 'black', 'color': 'white' });
+        }
+    });
+
+    $('.btn-attack').on('click', function () {
+        var clicked = $(this);
+
+        var counterDefeated = 0;
+        var charName = $('.def').attr('characterName');
+        var healthMain = $('.main').attr('health');
+        var attackMain = $('.main').attr('attack');
+        var healthDefender = $('.def').attr('health');
+        var counterAttack = $('.def').attr('counterAttack');
+
+        if (clicked.hasClass('#defender')==='' && clicked.hasClass('#character') === '') {
+            alert('You need to select a character and defender to start your game');
         }
 
-        else if (character.counter_attack_power >= character.targetNumber) {
-            character.lose();
+        var healthMainAfter = healthMain - counterAttack;
+        var healthDefAfter = healthDefender - attackMain;
+
+        var healthMain1 = $('.main').attr('health', healthMainAfter);
+
+        var healthDef1 = $('.def').attr('health', healthDefAfter);
+
+        $('.main p').html($('.main').attr("health"));
+        $('.def p').html($('.def').attr('health'));
+
+        $('.defender').html('<p>' + 'You attacked ' + charName +
+                        ' for ' + attackMain + ' damage ' +
+                        charName + ' attacked you back for ' +
+                        counterAttack + ' </p>').css({'font-size': '20px', 'text-align':'center'});
+
+        attackMain = attackMain * 2;
+        var attackMain1 = $('.main').attr('attack', attackMain);
+            
+            if (healthMainAfter <= 0) {
+                $('.defender').html('<p>' + 'You have been defeated...Game Over!!!' + '</p>').css({'font-size': '20px'});
+                $('.btn-attack').off('click');
+
+            } else if (healthDefAfter <= 0) {
+                $('.def').remove();
+                $('.defender').html('<p>' + ' You have been defeated ' + charName +
+                                    ' choose to fight another enemy.' + '</p>').css({'font-size': '20px'});
+                cousntDefated++;
+                console.log(' count during fight! '+counterDefeated);
+
+                if(counterDefeated === 3){
+                    $('.btn-attack').off('click');
+                }
+            }
+    });
+
+    function resetUI() {
+        $('.selected_character').remove();
+        $('.enemy_character').remove();
+
+        var images = ['dark_vader.jpg', 'obi_wan.jpg', 'yoda.jpg', 'porg_plush.jpg'];
+        for (var i = 0; i < images.length; i++) {
+
+            var imageCharacter = $("<img>");
+            imageCharacter.addClass("character-image");
+            imageCharacter.attr("src", "assets/images/" + images[i]);
+            message.append(imageCharacter);
         }
-        console.log("Increased power: " + character.attack_power);
-        console.log("Increased power: " + character.counter_attack_power);
-        console.log("Increased power: " + character.targetNumber);
-        console.log("Increased power: " + character.increasePower);
-    })
-});
-
-function resetUI() {
-    $('.selected_character').remove();
-    $('.enemy_character').remove();
-
-    var images = ['dark vader.jpg', 'obi wan.jpg', 'yoda.jpg', 'porg plush.jpg'];
-    for (var i = 0; i < images.length; i++) {
-
-        var imageCharacter = $("<img>");
-        imageCharacter.addClass("character-image");
-        //select a character
-        imageCharacter.attr("src", "assets/images/"+images[i]);
-        imageCharacter.attr(".character-image", images[i]);
-        message.append(imageCharacter);
     }
-}
+
+});
