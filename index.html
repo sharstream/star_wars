@@ -15,19 +15,40 @@
         <header>Star Wars RPG!</header>
     </div>
     <div id="container">
-        <div class="row shake-little">
-            <img id="delth_vader" class="first character-image" src="assets/images/dark_vader.jpg"
+        <p>Your Character</p>
+        <div class="row col-md-12 shake-little">
+            <div type="button" class="darth_vader col-6 col-sm-3" characterName ="Darth Vader" health = "400" attack = "8"
+            counterAttack = "20">
+                <h3>Darth Vader</h3>
+                <img id="darth_vader" class="starImage character-image" src="assets/images/darth_vader.png"
                 alt="character">
-            <img id="obi_wan" class="second character-image" src="assets/images/obi_wan.jpg"
+                <p>400</p>
+            </div>
+            <div type="button" class="obi_wan col-6 col-sm-3" characterName ="Obi Wan" health = "500" attack = "10"
+            counterAttack = "20">
+                <h3>Obi Wan</h3>
+                <img id="obi_wan" class="starImage character-image" src="assets/images/obi_wan.jpg"
                 alt="character">
-            <img id="yoda" class="third character-image" src="assets/images/yoda.jpg"
+                <p>500</p>
+            </div>
+            <div type="button" class="yoda col-6 col-sm-3" characterName ="Yoda" health = "600" attack = "9"
+            counterAttack = "20">
+                <h3>Yoda</h3>
+                <img id="yoda" class="starImage character-image" src="assets/images/yoda.png"
                 alt="character">
-            <img id="porg" class="four character-image" src="assets/images/porg_plush.jpg"
+                <p>600</p>
+            </div>
+            <div type="button" class="porg col-6 col-sm-3" characterName ="Luke Skywalker" health = "600" attack = "15"
+            counterAttack = "20">
+                <h3>Luke Skywalker</h3>
+                <img id="porg" class="starImage character-image" src="assets/images/luke.png"
                 alt="character">
+                <p>600</p>
+            </div>
         </div>
     </div>
     <br>
-    <div class="your_character"><p>Your Character</p></div>
+    <div class="chooseCharBox"></div>
     <div id="character" class="shake-slow selected_character"></div>
     <br>
     <div class="enemiesBox">
@@ -36,14 +57,15 @@
     </div>
     <br>
     <br>
-    <div class="figthBox"></div>
+    <div class="fightBox"></div>
         <p>Fight Section</p>
-        <button class="shake-hard btn-atttack">Attack</button>
+        <button class="shake-hard btn-attack">Attack</button>
     <br>    
     </div>
     <br>
-    <div class="defenderBox"><p>Your Defender</p></div>
-    <div id="defender" class="shake-opacity defender_character"></div>
+    <div class="shake-soft defenderBox"><p>Your Defender</p>
+        <div id="defender" class="defender_character"></div>
+    </div>
     <br>
     <!-- Note that this div is now empty. We will fill it dynamically -->
     <div id="defeat">
