@@ -160,10 +160,12 @@ var character = {
         var healthDefender = $('.def').attr('health');
         var counterAttack = $('.def').attr('counterAttack');
 
-        if ($('.enemiesBox').is(':empty') && $('.defenderBox').is(':empty')){
-            alert('You need to select a character and defender to start your game');
+        if ($('.enemiesBox').is(':empty')){
+            alert('You need to select a character to start your game');
         }
-        else {
+        else if ( $('.defenderBox').is(':empty') ) {
+            alert('You need to select a defender to start your game');
+        } else{
 
             var healthMainAfter = healthMain - counterAttack;
             var healthDefAfter = healthDefender - attackMain;
