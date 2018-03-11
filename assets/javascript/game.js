@@ -13,23 +13,11 @@ $(document).ready(function () {
 * --------------------------------- */
 
     var char1Count = true;
-    var cousntDefated = 0;
+    var counterDefeated = 0;
     var darthCount = 0;
     var obiCount = 0;
     var yodaCount = 0;
     var porgCount = 0;
-
-/* ---------- Objects ------------- *
-*                                   *
-* --------------------------------- */
-//or this alternative object with method function
-var character = {
-    health_points: 200,
-    attack_power: 0,
-    counter_attack_power: 0,
-    win: function win() { alert('You win!'); resetGame(); },
-    lose: function lose() { alert('Oh no, you lose!'); resetGame(); }
-}
 
 /* --------- Game Logics ---------- *
 *                                   *
@@ -37,9 +25,6 @@ var character = {
 
     function resetGame() {
         resetUI();
-        character.health_points = 200
-        character.attack_power = 0;
-        character.counter_attack_power = 0;
     }
 
     $('.darth_vader').on('click', function(){
@@ -48,112 +33,113 @@ var character = {
             darthCount++;
             char1Count = false;
 
-            $('.obi_wan').appendTo('.enemiesBox').css({'heigth': '100px', 'width':'200px', 
-                'background-color':'red'});
+            $('.obi_wan').appendTo('.enemiesBox').addClass("shake-little").css({'heigth': '100px', 'width':'200px', 
+                'background-color': 'red', 'text-align': 'center'});
             $('.obi_wan p').css({'margin-left': '30px'});
 
-            $('.yoda').appendTo('.enemiesBox').css({'heigth': '100px', 'width':'200px', 
-                'background-color':'red'});
+            $('.yoda').appendTo('.enemiesBox').addClass("shake-little").css({'heigth': '100px', 'width':'200px', 
+                'background-color': 'red', 'text-align': 'center'});
             $('.yoda p').css({'margin-left': '30px'});
 
-            $('.porg').appendTo('.enemiesBox').css({'heigth': '100px', 'width':'200px', 
-                'background-color':'red'});
+            $('.porg').appendTo('.enemiesBox').addClass("shake-little").css({'heigth': '100px', 'width':'200px', 
+                'background-color': 'red', 'text-align': 'center'});
             $('.porg p').css({'margin-left': '30px'});
 
             $('.starImage').css({'heigth': '100px', 'width':'200px', 
                                 'margin-left':'auto', 'margin-right': 'auto', 'display': 'block'});
         }
         else if (char1Count === false && darthCount === 0) {
-            $('.darth_vader').appendTo('.defenderBox').addClass("def").css({'background-color':'black', 'color': 'white'});
+            $('.darth_vader').appendTo('.defenderBox').addClass("def shake-little").css({'background-color':'black', 'color': 'white'});
             $('.darth_vader p').css({'margin-left': '30px'});
         }
     });
 
     $('.obi_wan').on('click', function(){
         if (char1Count === true) {
-            $(this).addClass('.main');
+            // debugger    
+            $(this).addClass('main');
             obiCount++;
             char1Count = false;
 
-            $('.darth_vader').appendTo('.enemiesBox').css({'heigth': '100px', 'width': '200px',
-                'background-color': 'red'});
+            $('.darth_vader').appendTo('.enemiesBox').addClass("shake-little").css({'heigth': '100px', 'width': '200px',
+                'background-color': 'red', 'text-align': 'center'});
             $('.darth_vader p').css({'margin-left': '30px'});
 
-            $('.yoda').appendTo('.enemiesBox').css({'heigth': '100px', 'width': '200px',
-                'background-color': 'red'});
+            $('.yoda').appendTo('.enemiesBox').addClass("shake-little").css({'heigth': '100px', 'width': '200px',
+                'background-color': 'red', 'text-align': 'center'});
             $('.yoda p').css({'margin-left': '30px'});
 
-            $('.porg').appendTo('.enemiesBox').css({'heigth': '100px', 'width': '200px',
-                'background-color': 'red'});
+            $('.porg').appendTo('.enemiesBox').addClass("shake-little").css({'heigth': '100px', 'width': '200px',
+                'background-color': 'red', 'text-align': 'center'});
             $('.porg p').css({'margin-left': '30px'});
 
             $('.starImage').css({'heigth': '100px', 'width': '200px',
                 'margin-left': 'auto', 'margin-right': 'auto', 'display': 'block'});
         }
         else if (char1Count === false && obiCount === 0) {
-            $('.obi_wan').appendTo('.defenderBox').addClass("def").css({ 'background-color': 'black', 'color': 'white' });
+            $('.obi_wan').appendTo('.defenderBox').addClass("def shake-little").css({ 'background-color': 'black', 'color': 'white' });
             $('.obi_wan p').css({'margin-left': '30px'});
         }
     });
 
     $('.yoda').on('click', function(){
         if (char1Count === true) {
-            $(this).addClass('.main');
+            $(this).addClass('main');
             yodaCount++;
             char1Count = false;
 
-            $('.darth_vader').appendTo('.enemiesBox').css({'heigth': '100px', 'width': '200px',
-                'background-color': 'red'});
+            $('.darth_vader').appendTo('.enemiesBox').addClass("shake-little").css({'heigth': '100px', 'width': '200px',
+                'background-color': 'red', 'text-align': 'center'});
             $('.darth_vader p').css({'margin-left': '30px'});
 
-            $('.obi_wan').appendTo('.enemiesBox').css({'heigth': '100px', 'width': '200px',
-                'background-color': 'red'});
+            $('.obi_wan').appendTo('.enemiesBox').addClass("shake-little").css({'heigth': '100px', 'width': '200px',
+                'background-color': 'red', 'text-align': 'center'});
             $('.obi_wan p').css({'margin-left': '30px'});
 
-            $('.porg').appendTo('.enemiesBox').css({'heigth': '100px', 'width': '200px',
-                'background-color': 'red'});
+            $('.porg').appendTo('.enemiesBox').addClass("shake-little").css({'heigth': '100px', 'width': '200px',
+                'background-color': 'red', 'text-align': 'center'});
             $('porg p').css({'margin-left': '30px'});
 
             $('.starImage').css({'heigth': '100px', 'width': '200px',
                 'margin-left': 'auto', 'margin-right': 'auto', 'display': 'block'});
         }
         else if (char1Count === false && yodaCount === 0) {
-            $('.yoda').appendTo('.defenderBox').addClass("def").css({ 'background-color': 'black', 'color': 'white' });
+            $('.yoda').appendTo('.defenderBox').addClass("def shake-little").css({ 'background-color': 'black', 'color': 'white' });
             $('.yoda p').css({'margin-left': '30px'});
         }
     });
 
     $('.porg').on('click', function(){
         if (char1Count === true) {
-            $(this).addClass('.main');
+            $(this).addClass('main');
             porgCount++;
             char1Count = false;
 
-            $('.darth_vader').appendTo('.enemiesBox').css({'heigth': '100px', 'width': '200px',
-                'background-color': 'red'});
+            $('.darth_vader').appendTo('.enemiesBox').addClass("shake-little").css({'heigth': '100px', 'width': '200px',
+                'background-color': 'red', 'text-align': 'center'});
             $('.darth_vader p').css({'margin-left': '30px'});
 
-            $('.obi_wan').appendTo('.enemiesBox').css({'heigth': '100px', 'width': '200px',
-                'background-color': 'red'});
+            $('.obi_wan').appendTo('.enemiesBox').addClass("shake-little").css({'heigth': '100px', 'width': '200px',
+                'background-color': 'red', 'text-align': 'center'});
             $('.obi_wan p').css({'margin-left': '30px'});
 
-            $('.yoda').appendTo('.enemiesBox').css({'heigth': '100px', 'width': '200px',
-                'background-color': 'red'});
+            $('.yoda').appendTo('.enemiesBox').addClass("shake-little").css({'heigth': '100px', 'width': '200px',
+                'background-color': 'red', 'text-align': 'center'});
             $('.yoga p').css({'margin-left': '30px'});
 
             $('.starImage').css({'heigth': '100px', 'width': '200px',
                 'margin-left': 'auto', 'margin-right': 'auto', 'display': 'block'});
         }
         else if (char1Count === false && porgCount === 0) {
-            $('.porg').appendTo('.defenderBox').addClass("def").css({ 'background-color': 'black', 'color': 'white' });
+            $('.porg').appendTo('.defenderBox').addClass("def shake-little").css({ 'background-color': 'black', 'color': 'white' });
             $('.porg p').css({'margin-left': '30px'});
         }
     });
 
     $('.btn-attack').on('click', function () {
-        var clicked = $(this);
-
-        var counterDefeated = 0;
+        var clicked = $(this);//you can use $ obj
+        // debugger
+        // var counterDefeated = 0;// declared it global
         var charName = $('.def').attr('characterName');
         var healthMain = $('.main').attr('health');
         var attackMain = $('.main').attr('attack');
@@ -193,28 +179,25 @@ var character = {
                     $('.def').remove();
                     $('.defeat').html('<p>' + ' You have been defeated ' + charName +
                                         ' choose to fight another enemy.' + '</p>').css({'font-size': '20px', 'color':'red'});
-                    cousntDefated++;
+                    counterDefeated++;
                     console.log(' count during fight! '+counterDefeated);
 
                     if(counterDefeated === 3){
                         $('.btn-attack').off('click');
                     }
+                    else{
+                        $('.defeat').html('<p>' + 'You Win!!!' + '</p>').css({ 'font-size': '20px', 'color': 'red' });
+                    }
                 }
             }
     });
 
+    $('.resetBtn').on('click', resetGame);
+
     function resetUI() {
-        $('.selected_character').remove();
-        $('.enemy_character').remove();
-
-        var images = ['dark_vader.jpg', 'obi_wan.jpg', 'yoda.jpg', 'porg_plush.jpg'];
-        for (var i = 0; i < images.length; i++) {
-
-            var imageCharacter = $("<img>");
-            imageCharacter.addClass("character-image");
-            imageCharacter.attr("src", "assets/images/" + images[i]);
-            message.append(imageCharacter);
-        }
+        $('.defenderBox').remove();
+        $('.enemiesBox').remove();
+        location.reload();
     }
 });
 
