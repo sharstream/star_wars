@@ -187,7 +187,7 @@ $(document).ready(function () {
                     }
                     else{
                         $('.defeat').html('<p>' + 'You Win!!!' + '</p>').css({ 'font-size': '20px', 'color': 'red' });
-                        $('.btn-attack').off('click');
+                        // $('.btn-attack').off('click');
                     }
                 }
             }
